@@ -36,7 +36,7 @@ module.exports = {
         // audience: process.env.AUTH0_AUDIENCE, // Optional
         // responseType: process.env.AUTH0_RESPONSE_TYPE, // Optional
         // scope: process.env.AUTH0_SCOPE, // Optional
-        // callbackPath: "/auth/callback", // Optional
+        callbackPath: "/auth/cb", // Optional
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
