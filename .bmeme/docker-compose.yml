@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  app:
+    image: bmeme/gatsby-dev:2.18.0-node15-buster-slim
+    entrypoint: /bin/sleep infinity
+    working_dir: /usr/src/app/
+    volumes:
+      - "../app:/usr/src/app:cached"
+    #    ports:
+    #      - 8000:8000
+    #      - 9000:9000
+    environment:
+      - DNSDOCK_ALIAS=fe.coffee-pot.bmeme.docker
+      - AUTH0_DOMAIN=bmeme.eu.auth0.com
+      - AUTH0_CLIENT_ID=j5XrtVpsc5wZtPD3Hh1r2r5gIfgc42Db
+      - AUTH0_CALLBACK_URL=https://www.bmeme.com
