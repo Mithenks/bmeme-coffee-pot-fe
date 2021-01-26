@@ -7,7 +7,6 @@ import SEO from "../components/seo"
 
 export default () => {
   const { isLoggedIn, profile } = useAuth()
-  const authData = AuthService.getAccessToken()
   console.log(AuthService)
   console.log(isLoggedIn)
   console.log(profile)
