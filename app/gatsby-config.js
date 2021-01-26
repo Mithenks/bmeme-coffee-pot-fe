@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon-32x32.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -37,6 +37,34 @@ module.exports = {
         // responseType: process.env.AUTH0_RESPONSE_TYPE, // Optional
         // scope: process.env.AUTH0_SCOPE, // Optional
         callbackPath: "/auth/cb", // Optional
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        // This type will contain remote schema Query type
+        typeName: `CRYSTALLIZE_CATALOGUE`,
+        // This is the field under which it's accessible
+        fieldName: `crystallize_catalogue`,
+        // URL to query from
+        url: `${process.env.CRYSTALLIZE_API_BASE}/${process.env.CRYSTALLIZE_TENANT_ID}/catalogue`,
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        // This type will contain remote schema Query type
+        typeName: `CRYSTALLIZE_ORDERS`,
+        // This is the field under which it's accessible
+        fieldName: `crystallize_orders`,
+        // URL to query from
+        url: `${process.env.CRYSTALLIZE_API_BASE}/${process.env.CRYSTALLIZE_TENANT_ID}/orders`,
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.dev/env-vars
+          "X-Crystallize-Access-Token-Id": `${process.env.CRYSTALLIZE_ACCESS_TOKEN_ID}`,
+          "X-Crystallize-Access-Token-Secret": `${process.env.CRYSTALLIZE_ACCESS_TOKEN_SECRET}`,
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

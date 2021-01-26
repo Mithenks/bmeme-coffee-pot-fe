@@ -1,0 +1,14 @@
+a {
+  color: #ec1c3d;
+}
+
+h1,
+h2,
+h3 {
+  font-family: futura-pt, sans-serif;
+}
+
+p,
+div {
+  font-family: Inconsolata, monospace;
+}

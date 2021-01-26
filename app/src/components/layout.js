@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import "./style.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -39,9 +40,8 @@ const Layout = ({ children }) => {
             marginTop: `2rem`,
           }}
         >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          © {new Date().getFullYear()}, Built with ♡ by {` `}
+          <a href="https://www.bmeme.com">BMEME</a>
         </footer>
       </div>
     </>

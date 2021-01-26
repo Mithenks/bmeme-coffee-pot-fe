@@ -14,3 +14,7 @@ services:
       - AUTH0_DOMAIN=bmeme.eu.auth0.com
       - AUTH0_CLIENT_ID=j5XrtVpsc5wZtPD3Hh1r2r5gIfgc42Db
       - AUTH0_CALLBACK_URL=http://localhost:8000/auth/cb
+      - CRYSTALLIZE_API_BASE=https://api.crystallize.com
+      - CRYSTALLIZE_TENANT_ID=bmeme
+      - CRYSTALLIZE_ACCESS_TOKEN_ID=8da16a6fc07f837b3d1e
+      - CRYSTALLIZE_ACCESS_TOKEN_SECRET=da616c96961fb74810a8cb2c5ca32ac2a950c307

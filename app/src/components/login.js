@@ -5,7 +5,9 @@ export default () => {
   const { isLoggedIn, profile } = useAuth()
   return (
     <div>
-      {profile && <p>Hello {profile.name}</p>}
+      {(profile && <p>Hello {profile.name}</p>) || (
+        <p>To start using our services, you need to log in.</p>
+      )}
       {isLoggedIn ? (
         <button onClick={AuthService.logout}>Logout</button>
       ) : (
