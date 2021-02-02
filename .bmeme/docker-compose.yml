@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   app:
-    image: bmeme/gatsby-dev:2.18.0-node15-buster-slim
+    image: bmeme/gatsby-dev:2.18.0-14.15.4-buster-slim
     entrypoint: /bin/sleep infinity
     working_dir: /usr/src/app/
     volumes:
@@ -18,3 +18,5 @@ services:
       - CRYSTALLIZE_TENANT_ID=bmeme
       - CRYSTALLIZE_ACCESS_TOKEN_ID=8da16a6fc07f837b3d1e
       - CRYSTALLIZE_ACCESS_TOKEN_SECRET=da616c96961fb74810a8cb2c5ca32ac2a950c307
+      - HASURA_URL=https://hasura-bmeme.herokuapp.com/v1/graphql
+      - HASURA_TOKEN=caricazione

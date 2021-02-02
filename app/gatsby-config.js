@@ -67,6 +67,21 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        // This type will contain remote schema Query type
+        typeName: `HASURA_ENDPOINT`,
+        // This is the field under which it's accessible
+        fieldName: `hasura_endpoint`,
+        // URL to query from
+        url: `${process.env.HASURA_URL}`,
+        // HTTP headers
+        headers: {
+          "x-hasura-admin-secret": `${process.env.HASURA_TOKEN}`,
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

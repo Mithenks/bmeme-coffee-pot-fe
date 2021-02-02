@@ -4,46 +4,46 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import UserProfile from "../components/UserProfile"
+import ProductList from "../components/ProductList"
 
 export default () => {
   const { isLoggedIn, profile } = useAuth()
-  console.log(AuthService)
-  console.log(isLoggedIn)
-  console.log(profile)
 
-  if (isLoggedIn) {
-    const productsQuery = graphql`
-      {
-        crystallize_catalogue {
-          catalogue {
+  const productsQuery = graphql`
+    query MyQuery($language: String = "en") {
+      crystallize_catalogue {
+        catalogue(language: $language) {
+          name
+          id
+          children {
             id
-            children {
-              id
+            name
+            type
+            components {
               name
+              content {
+                ... on CRYSTALLIZE_CATALOGUE_RichTextContent {
+                  __typename
+                  html
+                  plainText
+                  json
+                }
+              }
             }
+            language
           }
         }
       }
-    `
-    const data = useStaticQuery(productsQuery)
-    console.log(data)
-
-    return (
-      <Layout>
-        <SEO title="Products" />
-        <p>You are logged in</p>
-        <p>
-          Products size():{" "}
-          {data.crystallize_catalogue.catalogue.children.length}
-        </p>
-      </Layout>
-    )
-  }
+    }
+  `
+  const data = useStaticQuery(productsQuery)
 
   return (
     <Layout>
       <SEO title="Products" />
-      {isLoggedIn ? <p>You are logged in</p> : <p>You are not logged in</p>}
+      {isLoggedIn && <UserProfile profile={profile} />}
+      <ProductList products={data.crystallize_catalogue.catalogue} />
     </Layout>
   )
 }

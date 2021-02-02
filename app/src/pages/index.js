@@ -21,7 +21,9 @@ const IndexPage = () => {
       </p>
       <Login>Log in</Login>
       <br />
-      {isLoggedIn ? <Link to="/products">Go to products</Link> : ""}
+      <Link to="/products">Go to products</Link>
+      <br />
+      {isLoggedIn ? <Link to="/orders">Go to orders</Link> : ""}
       <div
         style={{ maxWidth: `300px`, marginTop: `5em`, marginBottom: `1.45rem` }}
       >
